@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href={{ url_for( 'static', filename='styles.css' ) }} />
+        <title>Spotify Discovery</title>
+    </head>
+
+    <div class="center">
+        <div class="border">
+            <div class="row">
+                <div class="text column">
+                    <h1>{{songName}}</h2>
+        
+                    <h2>
+                        {% for i in range(totalArtists) %}
+                            {% if i == totalArtists-1 %}
+                                {{ artistNames[i] }}
+                            {% else %}
+                                {{ artistNames[i] }} |
+                            {% endif %}
+                        {% endfor %}
+                    </h2>
+        
+                    <audio controls>
+                        <source src={{previewURL}} type="audio/mp3">
+                    Your browser does not support the audio element.
+                    </audio>
+                
+        
+                    <a href={{spotifyURL}} target="_blank"><h2 class="text link">Play me on Spotify!</h2></a>
+                </div>
+        
+                <div class="column">
+                    <img src={{albumImage}} width="300px"></img>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</html>
